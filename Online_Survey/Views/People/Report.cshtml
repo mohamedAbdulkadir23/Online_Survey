@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Online_Survey.Models.People>
+@{
+    Layout = "_AdminLayout";
+}
+@{
+    ViewData["Title"] = "Report";
+}
+
+<h1>People Report</h1>
+
+
+<table class="table  table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tell)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reg_date)
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tell)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address.District)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reg_date)
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>

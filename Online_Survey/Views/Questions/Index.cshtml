@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Online_Survey.Models.Questions>
+@{
+    Layout = "_AdminLayout";
+}
+@{
+    ViewData["Title"] = "Questions";
+}
+
+<h1>Questions</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="fa fa-plus"></i> Create New
+    </a>
+</p>
+
+<table class="table table_normal table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Survey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Question_text)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Created_at)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Survey.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Question_text)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Created_at)
+                </td>
+                <td>
+                    <!-- Edit Button -->
+                    <a asp-action="Edit" asp-route-id="@item.Question_id" class="btn btn-warning btn-sm">
+                        <i class="fa fa-edit"></i> Edit
+                    </a>
+                    <!-- Details Button -->
+                    <a asp-action="Details" asp-route-id="@item.Question_id" class="btn btn-info btn-sm">
+                        <i class="fa fa-info-circle"></i> Details
+                    </a>
+                    <!-- Delete Button -->
+                    <a asp-action="Delete" asp-route-id="@item.Question_id" class="btn btn-danger btn-sm">
+                        <i class="fa fa-trash"></i> Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

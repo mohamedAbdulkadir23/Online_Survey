@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Online_Survey.Models.Questions>
+@{
+    Layout = "_AdminLayout";
+}
+@{
+    ViewData["Title"] = "Report";
+}
+
+<h1>Questions</h1>
+
+
+
+<table class="table  table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Survey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Question_text)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Created_at)
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Survey.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Question_text)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Created_at)
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>
